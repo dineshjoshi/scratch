@@ -3,6 +3,38 @@ package TST;
 use Data::Dumper;
 use strict;
 
+#######################################################
+# Each TST Node has 3 children (left, middle, right)
+#
+# The (left, right) children store pointers to nodes
+# that are lesser or greater than the root node.
+#
+# The middle node stores the pointer to all strings
+# that have the root node as their prefix. This is the
+# key idea of the TST
+# 
+# In order to form words, perform a DFS starting at 
+# the root node's middle child. Each time you follow
+# the middle node, add the character to the word being
+# formed. See the search() function.
+#
+# Each word's termination is designated by isEnd flag.
+# 
+# Sample tree: cat, cut, ca, drat
+#           c
+#           | \______
+#           a*       \
+#           | \       d
+#           t* u      |
+#              |      r
+#              t*     |
+#                     a
+#                     |
+#                     t*
+# 
+# Terminal nodes are indicated by asterisk *
+#######################################################
+
 sub new {
     my ($class, $options) = @_;
     my $self = {};
