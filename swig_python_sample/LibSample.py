@@ -68,9 +68,74 @@ except AttributeError:
 
 
 
+def new_intp():
+  return _LibSample.new_intp()
+new_intp = _LibSample.new_intp
+
+def copy_intp(*args):
+  return _LibSample.copy_intp(*args)
+copy_intp = _LibSample.copy_intp
+
+def delete_intp(*args):
+  return _LibSample.delete_intp(*args)
+delete_intp = _LibSample.delete_intp
+
+def intp_assign(*args):
+  return _LibSample.intp_assign(*args)
+intp_assign = _LibSample.intp_assign
+
+def intp_value(*args):
+  return _LibSample.intp_value(*args)
+intp_value = _LibSample.intp_value
+class _node(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, _node, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, _node, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["data"] = _LibSample._node_data_set
+    __swig_getmethods__["data"] = _LibSample._node_data_get
+    if _newclass:data = _swig_property(_LibSample._node_data_get, _LibSample._node_data_set)
+    __swig_setmethods__["next"] = _LibSample._node_next_set
+    __swig_getmethods__["next"] = _LibSample._node_next_get
+    if _newclass:next = _swig_property(_LibSample._node_next_get, _LibSample._node_next_set)
+    def __init__(self): 
+        this = _LibSample.new__node()
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _LibSample.delete__node
+    __del__ = lambda self : None;
+_node_swigregister = _LibSample._node_swigregister
+_node_swigregister(_node)
+
+
+def list_new():
+  return _LibSample.list_new()
+list_new = _LibSample.list_new
+
+def list_free(*args):
+  return _LibSample.list_free(*args)
+list_free = _LibSample.list_free
+
+def list_insert(*args):
+  return _LibSample.list_insert(*args)
+list_insert = _LibSample.list_insert
+
+def list_next(*args):
+  return _LibSample.list_next(*args)
+list_next = _LibSample.list_next
+
+def list_node_getint(*args):
+  return _LibSample.list_node_getint(*args)
+list_node_getint = _LibSample.list_node_getint
+
 def smpl_sum(*args):
   return _LibSample.smpl_sum(*args)
 smpl_sum = _LibSample.smpl_sum
+
+def smpl_sub(*args):
+  return _LibSample.smpl_sub(*args)
+smpl_sub = _LibSample.smpl_sub
 # This file is compatible with both classic and new-style classes.
 
 
