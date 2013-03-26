@@ -19,5 +19,7 @@ $(SONAME): $(OBJS)
 clean:
 	-rm *.so *.o *.d *.pyc $(OBJS) $(SONAME)
 
+swig-generate-extensions:
+	swig2.0 -python libsample.h
 
 all: $(SONAME)
