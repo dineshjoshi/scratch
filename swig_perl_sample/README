@@ -1,0 +1,9 @@
+SWIG 2.0 C/Python interface example
+-----------------------------------
+Just trying out SWIG to interface between C and Perl
+
+
+Docs
+----
+General: http://www.swig.org/Doc2.0/SWIGDocumentation.html
+Pointers: http://www.swig.org/Doc2.0/SWIGDocumentation.html#CSharp_void_pointers
