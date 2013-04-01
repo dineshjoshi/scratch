@@ -263,9 +263,6 @@ int main(void) {
     thread_create(&t1_ctx, tf1, NULL);
     thread_create(&t2_ctx, tf2, NULL);
 
-    /* list_ctx[1] = &t1_ctx; */
-    /* list_ctx[0] = &main_ctx; */
-
     thread_join_wait();
     printf("\nAll done with threads\n");
     return 0;
