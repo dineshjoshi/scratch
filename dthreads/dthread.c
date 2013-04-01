@@ -99,16 +99,16 @@ int               curthread         = 0;
 int               n_running_threads = 0;
 
 void block_sig(){
-	sigprocmask(SIG_BLOCK, &block, NULL);
+    sigprocmask(SIG_BLOCK, &block, NULL);
 }
 
 void unblock_sig(){
-	sigprocmask(SIG_UNBLOCK, &block, NULL);	
+    sigprocmask(SIG_UNBLOCK, &block, NULL); 
 }
 
 
 void thread_execute(void *(*start_routine)(void *),void *arg){
-	void *retval = start_routine(arg);
+    void *retval = start_routine(arg);
     tlist[curthread].status = EXITED;
     n_running_threads--;
     raise(SIGPROF);
@@ -122,14 +122,14 @@ void _thread_init(int offset, ucontext_t *ctx) {
 }
 
 void thread_create(ucontext_t *tctx, void (*start_routine)(), void *arg) {
-	getcontext(tctx);
+    getcontext(tctx);
 
-	tctx->uc_link           = 0;
-	tctx->uc_stack.ss_sp    = malloc(16*1024);
-	tctx->uc_stack.ss_size  = 16*1024;
-	tctx->uc_stack.ss_flags = 0;
+    tctx->uc_link           = 0;
+    tctx->uc_stack.ss_sp    = malloc(16*1024);
+    tctx->uc_stack.ss_size  = 16*1024;
+    tctx->uc_stack.ss_flags = 0;
 
-	makecontext(tctx, thread_execute, 2, start_routine, 0);
+    makecontext(tctx, thread_execute, 2, start_routine, 0);
     _thread_init(next_free_thread, tctx);
 
     next_free_thread++;
@@ -167,16 +167,16 @@ void tf2() {
 
 
 void timer_init(long us_interval){
-	sigemptyset(&block);
-	sigaddset(&block, SIGPROF);
+    sigemptyset(&block);
+    sigaddset(&block, SIGPROF);
 
-	timer_set.it_value.tv_sec      = -0;
-	timer_set.it_value.tv_usec     = us_interval;
-	timer_set.it_interval.tv_sec   = 0;
-	timer_set.it_interval.tv_usec  = us_interval;
+    timer_set.it_value.tv_sec      = -0;
+    timer_set.it_value.tv_usec     = us_interval;
+    timer_set.it_interval.tv_sec   = 0;
+    timer_set.it_interval.tv_usec  = us_interval;
 
-	signal(SIGPROF, scheduler);
-	setitimer(ITIMER_PROF, &timer_set, NULL);
+    signal(SIGPROF, scheduler);
+    setitimer(ITIMER_PROF, &timer_set, NULL);
 }
 
 /**
@@ -213,7 +213,7 @@ int find_next_runnable_thread() {
 void scheduler(int sig){
     static int num_switches=0;
 
-	block_sig();
+    block_sig();
     timer_init(TIMER_WAIT);
     unblock_sig();
 
@@ -223,15 +223,15 @@ void scheduler(int sig){
     num_switches++;
 
     int next_thread=-1;
-	if ((next_thread = find_next_runnable_thread()) != -1) {
+    if ((next_thread = find_next_runnable_thread()) != -1) {
         int old_thread = curthread;
         curthread      = next_thread;
         /* printf("SWP[%d,%d]\n", old_thread, next_thread); */
- 		swapcontext(tlist[old_thread].ctx, tlist[next_thread].ctx);
-	}
-	else {
+        swapcontext(tlist[old_thread].ctx, tlist[next_thread].ctx);
+    }
+    else {
         setcontext(&main_ctx);
-	}
+    }
 
     
 }
