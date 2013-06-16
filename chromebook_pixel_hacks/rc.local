@@ -1,0 +1,26 @@
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+# Chromebook pixel hack - this script should live in /etc/
+# Notes:
+# ------
+# tpm_tis modprobe in /etc/modules doesn't work on ubuntu 13.04
+# Neither does the acpi_call modprobe work
+# tpm_savestate_test.py is required to initialize the tpm device
+# in such a way that the system actually goes to sleep
+
+sudo modprobe tpm_tis force=1 interrupts=0
+sudo modprobe acpi_call
+sudo python /home/basix/Downloads/tpm_savestate_test.py
+
+exit 0

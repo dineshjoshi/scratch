@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Turn on keyboard backlight after restore :P
+# Hack until ChromeOS patches are in the mainline
+# This file should live in /etc/pm/sleep.d/ on
+# ubuntu / debian based systems
+
+sudo bash -c 'echo "\_SB.KBLT.KBCM 0x64" > /proc/acpi/call'
