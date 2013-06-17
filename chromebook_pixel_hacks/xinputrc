@@ -1,0 +1,3 @@
+xinput set-prop "Mouse0" "Synaptics Finger" 15 24 256
+xinput set-prop "Mouse0" "Synaptics Tap Action" 1 1 1 1 1 1 1
+xinput set-prop "Mouse0" "Synaptics Coasting Speed" 10 10 
