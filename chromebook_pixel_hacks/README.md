@@ -23,6 +23,8 @@ from sleep. It turns on the keyboard backlight. This can be customized
 further to be intelligent enough to detect the state of the keyboard
 backlight and set it appropriately.
 
+5. xdotool - 
+
 Credits: 
 
 1. Brock Tice's blog -
