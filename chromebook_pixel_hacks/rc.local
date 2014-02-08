@@ -21,6 +21,6 @@
 
 sudo modprobe tpm_tis force=1 interrupts=0
 sudo modprobe acpi_call
-sudo python /home/basix/Downloads/tpm_savestate_test.py
+sudo python /home/basix/scratch/chromebook_pixel_hacks/tpm_savestate_test.py
 
 exit 0

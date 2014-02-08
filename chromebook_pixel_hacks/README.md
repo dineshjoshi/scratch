@@ -9,7 +9,7 @@ your specific paths.
 Here is a list of hacks:
 
 1. ACPI Call - required to make arbitrary acpi calls. Known to work
-with Linux kernel 3.9 and lower.  
+with Linux kernel 3.9 and lower.
 
 2. tpm_savestate_test.py - Required to make the sleep functionality
 work correctly. This works in conjunction with the tpm_tis module.
@@ -25,6 +25,10 @@ backlight and set it appropriately.
 
 5. xdotool - 
 
+6. Xorg.conf - This requires you to disable the gnome settings daemon
+otherwise it will override the settings in Xorg.conf. The instructions
+can be found here - https://wiki.archlinux.org/index.php/Touchpad_Synaptics
+
 Credits: 
 
 1. Brock Tice's blog -
@@ -37,3 +41,5 @@ http://blog.brocktice.com/2013/03/09/running-debian-wheezy-7-0-on-the-chromebook
 Please let me know if I have missed crediting you. Drop me an email
 and I will update this with the appropriate credits. None of the code
 / scripts are original and are derivative works of others.
+
+4. https://github.com/ericwright90/personal_preferences/blob/master/chromebook-pixel/ubuntu_installation.md
